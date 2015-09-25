@@ -37,12 +37,19 @@ class ViewsController extends AppController
             $this->render("/Element/$element");
         }
     }
-    public function tmpl($element)
+    public function tmpl($element, $page = NULL)
     {
         $element = str_replace('.html', '', $element);
-        $defaultElement = ['dashboard', 'app', 'header', 'nav', 'rightbar'];
-        if (in_array($element, $defaultElement)) {
+        $page = str_replace('.html', '', $page);
+        $defaultElements = ['dashboard', 'app', 'header', 'nav', 'rightbar'];
+        $defaultPages = ['login', 'signup', 'forgotpass'];
+        
+        if (!$page && in_array($element, $defaultElements)) {
             $this->render("/Element/$element");
+        } elseif($page && in_array($page, $defaultPages)) {
+            
+            //$this->render("/Pages/$page");
+            $this->render("/Users/$page");
         }
     }
 }

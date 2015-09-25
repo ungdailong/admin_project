@@ -60,3 +60,4 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <![endif]--> 
     <?= $this->Html->script("vendor.1de22ac9"); ?>
     <?= $this->Html->script("app.ebf29d05"); ?>
+    <?= $this->Html->script("custom"); ?>
