@@ -117,7 +117,7 @@ angular.module("minovateApp", ["ngAnimate", "ngCookies", "ngResource", "ngSaniti
         suffix: ".json"
     }), a.useLocalStorage(), a.preferredLanguage("en")
 }]).config(["$stateProvider", "$urlRouterProvider", function(a, b) {
-    b.otherwise("/app/dashboard"), a.state("app", {
+    b.otherwise("/core/login"), a.state("app", {
         "abstract": !0,
         url: "/app",
         templateUrl: "views/tmpl/app.html"
@@ -621,6 +621,7 @@ angular.module("minovateApp", ["ngAnimate", "ngCookies", "ngResource", "ngSaniti
             a.data = b, angular.element(".tile.refreshing").removeClass("refreshing")
         })
     }, a.changeLanguage = function(b) {
+        alert(123);
         c.use(b), a.currentLanguage = b
     }, a.currentLanguage = c.proposedLanguage() || c.use()
 }]), angular.module("minovateApp").directive("navCollapse", ["$timeout", function(a) {

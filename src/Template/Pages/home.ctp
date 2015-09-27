@@ -54,10 +54,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     <div id="wrap" ui-view autoscroll="false"></div>
     <!-- Page Loader --> <div id="pageloader" page-loader></div> 
 
-    <script src="//maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing&sensor=false&language=en&v=3.17"></script>
+    <!--<script src="//maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing&sensor=false&language=en&v=3.17"></script>-->
     <!--[if lt IE 9]>
     <?= $this->Html->script("oldieshim.ff90b0fb"); ?>
     <![endif]--> 
     <?= $this->Html->script("vendor.1de22ac9"); ?>
-    <?= $this->Html->script("app.ebf29d05"); ?>
+    <?= $login ? $this->Html->script("login") : $this->Html->script("app.ebf29d05"); ?>
     <?= $this->Html->script("custom"); ?>

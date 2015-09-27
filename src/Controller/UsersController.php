@@ -13,6 +13,12 @@ class UsersController extends AppController
     public $components = [
         'Auth',
     ];
+    public function initialize()
+    {
+        //$this->viewBuilder()->layout(false);
+        parent::initialize();
+    }
+
     /**
      * Index method
      *
@@ -117,7 +123,18 @@ class UsersController extends AppController
      * @return redirect to dashboard
      */
     public function login()
-    {
+    {//debug($this->request);die();
+        /*if (!$this->Auth->identify ()) {
+            $this->redirect('#core/login');
+        }*/
+        /*$routes->redirect(
+            '/home/*',
+            ['controller' => 'Users', 'action' => ''],
+            ['persist' => true]
+            // Or ['persist'=>['id']] for default routing where the
+            // view action expects $id as an argument.
+        );
+        die();*/
         /*$this->set('title_for_layout', 'Users Login');
         
         if ($this->request->is('post')) {
@@ -139,5 +156,8 @@ class UsersController extends AppController
                 return $this->redirect($this->Auth->redirectUrl());
             }
         }*/
+        //$this->viewBuilder()->layout('false');
+        $this->set('login', true);
+        $this->render("/Pages/home");
     }
 }

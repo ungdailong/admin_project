@@ -43,6 +43,46 @@ class AppController extends Controller
 
         $this->loadComponent('RequestHandler');
         $this->loadComponent('Flash');
+
+        //if($this->request-here>)
+        //echo $this->request->here(true);
+        //debug($this->request);
+        //die();
+        //$this->loadComponent('Auth');
+        
+        $this->loadComponent('Auth', [
+            //'authorize' => false,
+            /*'loginAction' => [
+                'controller' => '#',
+                'action' => 'core/login',
+                //'plugin' => 'Users'
+            ],
+            'loginAction' => [
+                'controller' => 'Users',
+                'action' => 'login',
+                //'plugin' => 'Users'
+            ],*/
+            'loginRedirect' => [
+                'controller' => 'Pages',
+                'action' => 'display',
+                'home'
+            ],
+            'logoutRedirect' => [
+                'controller' => 'Pages',
+                'action' => 'display',
+                'home'
+            ],
+            'authenticate' => [
+                'Form' => [
+                    'fields' => ['username' => 'email', 'password' => 'passwd']
+                ]
+            ],
+            'authError' => 'Did you really think you are allowed to see that?',
+            'storage' => 'Session'
+        ]);
+        /*if (!$this->Auth->identify ()) {
+            $this->redirect('#core/login');
+        }*/
     }
 
     /**
@@ -58,5 +98,11 @@ class AppController extends Controller
         ) {
             $this->set('_serialize', true);
         }
+    }
+    public function isAuthorized($user) {
+        if (isset($user['role']) && ($user['role'] == 'admin')) {
+            return true;
+        }
+        return false;
     }
 }
