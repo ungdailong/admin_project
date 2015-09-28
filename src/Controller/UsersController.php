@@ -11,9 +11,9 @@ use App\Controller\AppController;
 class UsersController extends AppController
 {
     public $components = [
-        'Auth',
+        //'Auth',
     ];
-    public function initialize()
+    public function initialize1()
     {
         //$this->viewBuilder()->layout(false);
         parent::initialize();
@@ -158,6 +158,7 @@ class UsersController extends AppController
         }*/
         //$this->viewBuilder()->layout('false');
         $this->set('login', true);
-        $this->render("/Pages/home");
+        //$this->render("/Pages/home");
+        
     }
 }

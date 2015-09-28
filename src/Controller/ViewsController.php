@@ -11,6 +11,7 @@ class ViewsController extends AppController
     {
         $this->viewBuilder()->layout(false);
         parent::initialize();
+        //$this->Auth->allow();
     }
 
     /*public function dashboard()
@@ -30,17 +31,27 @@ class ViewsController extends AppController
         $this->viewBuilder()->layout(false);
         $this->render('/Element/app');
     }    */
-    public function html($element)
+    public function html($element, $page = NULL)
     {
-        $defaultElement = ['dashboard', 'app', 'header', 'nav', 'rightbar'];
-        if (in_array($element, $defaultElement)) {
+        $element = str_replace('.html', '', $element);
+        $page = str_replace('.html', '', $page);
+
+        $defaultElements = ['dashboard', 'header', 'nav'];
+        $defaultPages = ['signin', 'signup', 'forgot-password', 'profile'];
+        
+        if (!$page && in_array($element, $defaultElements)) {
             $this->render("/Element/$element");
+
+        } elseif($page && in_array($page, $defaultPages)) {
+            $this->render("/Users/$page");
         }
+        
     }
     public function tmpl($element, $page = NULL)
     {
         $element = str_replace('.html', '', $element);
         $page = str_replace('.html', '', $page);
+
         $defaultElements = ['dashboard', 'app', 'header', 'nav', 'rightbar'];
         $defaultPages = ['login', 'signup', 'forgotpass'];
         

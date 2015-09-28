@@ -28,36 +28,41 @@ endif;
 $cakeDescription = 'CakePHP: the rapid development php framework';
 ?>
 <!doctype html>
-<html ng-app="minovateApp" ng-controller="MainCtrl" class="no-js {{containerClass}}">
-<head>
-<meta charset="utf-8">
-<title>Minovate - Admin Dashboard</title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width">
-<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-<link rel="icon" type="image/ico" href="favicon.ico">
-<?= $this->Html->css("vendor.4575e575"); ?>
-<?= $this->Html->css("main.53e5242d"); ?>
-<script>
-    var dashboardUrl = "element/html/dashboard",
-        appUrl = "element/html/app",
-        headerUrl = "element/html/header",
-        navUrl = "element/html/nav",
-        rightbarUrl = "element/html/rightbar",
-        languageUrl = "<?php echo Router::url('/') ?>languages/";;
-</script>
-<body id="minovate" class="{{main.settings.navbarHeaderColor}} {{main.settings.activeColor}} {{containerClass}}" ng-class="{'header-fixed':main.settings.headerFixed, 'header-static':!main.settings.headerFixed, 'aside-fixed':main.settings.asideFixed, 'aside-static':!main.settings.asideFixed, 'rightbar-show':main.settings.rightbarShow, 'rightbar-hidden':!main.settings.rightbarShow }"> 
-<!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
- <![endif]--> 
-    <!-- Application content --> 
-    <div id="wrap" ui-view autoscroll="false"></div>
-    <!-- Page Loader --> <div id="pageloader" page-loader></div> 
+<!--[if lt IE 8]>         <html class="no-js lt-ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Web Application</title>
+        <meta name="description" content="Responsive Admin Web App">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-    <!--<script src="//maps.googleapis.com/maps/api/js?libraries=weather,geometry,visualization,places,drawing&sensor=false&language=en&v=3.17"></script>-->
-    <!--[if lt IE 9]>
-    <?= $this->Html->script("oldieshim.ff90b0fb"); ?>
-    <![endif]--> 
-    <?= $this->Html->script("vendor.1de22ac9"); ?>
-    <?= $login ? $this->Html->script("login") : $this->Html->script("app.ebf29d05"); ?>
-    <?= $this->Html->script("custom"); ?>
+        <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+        <!-- Needs images, font... therefore can not be part of main.css -->
+        <?= $this->Html->css("bower_components/font-awesome/css/font-awesome.min")?>
+        <?= $this->Html->css("bower_components/weather-icons/css/weather-icons.min")?>
+        <!-- end Needs images -->
+        <?= $this->Html->css("main.css")?>
+
+    </head>
+    <body data-ng-app="app" id="app" class="app" data-custom-page="" data-off-canvas-nav="" data-ng-controller="AppCtrl" data-ng-class=" {'layout-boxed': admin.layout === 'boxed' } ">
+        <!--[if lt IE 9]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <section data-ng-include=" 'views/header.html' " id="header" class="header-container" data-ng-class=" {'header-fixed': admin.fixedHeader} " data-ng-controller="HeaderCtrl"></section>
+
+        <div class="main-container">
+            <aside data-ng-include=" 'views/nav.html' " id="nav-container" class="nav-container" data-ng-class=" {'nav-fixed': admin.fixedSidebar, 'nav-horizontal': admin.menu === 'horizontal', 'nav-vertical': admin.menu === 'vertical'}">
+            </aside>
+
+            <section data-ng-view="" id="content" class="content-container {{admin.pageTransition.class}}"></section>
+        </div>
+
+
+        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+        <?= $this->Html->script("vendor")?>
+        <?= $this->Html->script("ui")?>
+        <?= $this->Html->script("app")?>
+    <!-- </body>
+</html> -->

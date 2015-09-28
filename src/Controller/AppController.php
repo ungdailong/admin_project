@@ -50,9 +50,9 @@ class AppController extends Controller
         //die();
         //$this->loadComponent('Auth');
         
-        $this->loadComponent('Auth', [
+        /*$this->loadComponent('Auth', [
             //'authorize' => false,
-            /*'loginAction' => [
+            'loginAction' => [
                 'controller' => '#',
                 'action' => 'core/login',
                 //'plugin' => 'Users'
@@ -61,7 +61,7 @@ class AppController extends Controller
                 'controller' => 'Users',
                 'action' => 'login',
                 //'plugin' => 'Users'
-            ],*/
+            ],
             'loginRedirect' => [
                 'controller' => 'Pages',
                 'action' => 'display',
@@ -79,7 +79,7 @@ class AppController extends Controller
             ],
             'authError' => 'Did you really think you are allowed to see that?',
             'storage' => 'Session'
-        ]);
+        ]);*/
         /*if (!$this->Auth->identify ()) {
             $this->redirect('#core/login');
         }*/
@@ -99,7 +99,7 @@ class AppController extends Controller
             $this->set('_serialize', true);
         }
     }
-    public function isAuthorized($user) {
+    public function isAuthorized1($user) {
         if (isset($user['role']) && ($user['role'] == 'admin')) {
             return true;
         }

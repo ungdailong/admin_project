@@ -1,268 +1,244 @@
-<header class="clearfix">
-    <!-- Branding -->
-    <div class="branding {{main.settings.brandingColor}}">
-        <a class="brand" ui-sref="app.dashboard"> <span><strong>MIN</strong>OVATE</span> </a> <a href="javascript:;" class="offcanvas-toggle visible-xs-inline" offcanvas-sidebar><i class="fa fa-bars"></i></a> </div>
-    <!-- Branding end -->
-    <!-- Left-side navigation -->
-    <ul class="nav-left pull-left list-unstyled list-inline">
-        <li class="sidebar-collapse divided-right">
-            <a href="javascript:;" collapse-sidebar>
-                <fa name="outdent"></fa>
-            </a>
-        </li>
-        <li class="dropdown divided-right settings" dropdown>
-            <a href class="dropdown-toggle" dropdown-toggle>
-                <fa name="cog"></fa>
-            </a>
-            <ul class="dropdown-menu with-arrow animated littleFadeInUp" role="menu">
-                <li>
-                    <ul class="color-schemes list-inline">
-                        <li class="title">Header Color:</li>
-                        <li>
-                            <a href="javascript:;" class="scheme-drank" ng-click="main.settings.navbarHeaderColor='scheme-default'; $event.stopPropagation()"></a>
+<header class="top-header clearfix">
+
+    <!-- Logo -->
+    <div class="logo">
+        <a href="#/">
+            <!-- <span class="logo-icon glyphicon glyphicon-fire"></span> -->
+            <span>{{main.brand}}</span>
+        </a>
+    </div>
+
+    <!-- needs to be put after logo to make it working-->
+    <div class="menu-button" toggle-off-canvas>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+
+    <div class="top-nav">
+        <ul class="nav-left list-unstyled">
+            <li>
+                <a href="#/" data-toggle-nav-collapsed-min
+                             class="toggle-min"
+                             id="step3"
+                             ><i class="fa fa-bars"></i></a>
+            </li>
+            <li class="dropdown hidden-xs">
+                <a href="javascript:;" class="dropdown-toggle" id="step1" data-toggle="dropdown"><i class="fa fa-cogs"></i></a>
+                <div class="dropdown-menu with-arrow panel panel-dark admin-options" ui-not-close-on-click>
+                    <div class="panel-heading"> Admin Options </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <p>Layouts Style</p>
+                            <label class="ui-radio"><input name="layout" type="radio" value="boxed" ng-model="admin.layout"><span>Boxed</span></label>
+                            <label class="ui-radio"><input name="layout" type="radio" value="wide" ng-model="admin.layout"><span>Wide</span></label>
                         </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-black" ng-click="main.settings.navbarHeaderColor='scheme-black'; $event.stopPropagation()"></a>
+                        <li class="list-group-item">
+                            <p>Menu Style</p>
+                            <label class="ui-radio"><input name="menu" type="radio" value="vertical" ng-model="admin.menu"><span>Vertical</span></label>
+                            <label class="ui-radio"><input name="menu" type="radio" value="horizontal" ng-model="admin.menu"><span>Horizontal</span></label>
                         </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-greensea" ng-click="main.settings.navbarHeaderColor='scheme-greensea'; $event.stopPropagation()"></a>
+                        <li class="list-group-item">
+                            <p>Additional</p>
+                            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ng-model="admin.fixedHeader"><span>Fixed Top Header</span></label>
+                            <br>
+                            <label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ng-model="admin.fixedSidebar"><span>Fixed Sidebar Menu</span></label>
                         </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-cyan" ng-click="main.settings.navbarHeaderColor='scheme-cyan'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-lightred" ng-click="main.settings.navbarHeaderColor='scheme-lightred'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-light" ng-click="main.settings.navbarHeaderColor='scheme-light'; $event.stopPropagation()"></a>
-                        </li>
-                        <li class="title">Branding Color:</li>
-                        <li>
-                            <a href="javascript:;" class="scheme-drank" ng-click="main.settings.brandingColor='scheme-default'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-black" ng-click="main.settings.brandingColor='scheme-black'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-greensea" ng-click="main.settings.brandingColor='scheme-greensea'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-cyan" ng-click="main.settings.brandingColor='scheme-cyan'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-lightred" ng-click="main.settings.brandingColor='scheme-lightred'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-light" ng-click="main.settings.brandingColor='scheme-light'; $event.stopPropagation()"></a>
-                        </li>
-                        <li class="title">Sidebar Color:</li>
-                        <li>
-                            <a href="javascript:;" class="scheme-drank" ng-click="main.settings.sidebarColor='scheme-default'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-black" ng-click="main.settings.sidebarColor='scheme-black'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-greensea" ng-click="main.settings.sidebarColor='scheme-greensea'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-cyan" ng-click="main.settings.sidebarColor='scheme-cyan'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-lightred" ng-click="main.settings.sidebarColor='scheme-lightred'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-light" ng-click="main.settings.sidebarColor='scheme-light'; $event.stopPropagation()"></a>
-                        </li>
-                        <li class="title">Active Color:</li>
-                        <li>
-                            <a href="javascript:;" class="scheme-drank" ng-click="main.settings.activeColor='drank-scheme-color'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-black" ng-click="main.settings.activeColor='black-scheme-color'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-greensea" ng-click="main.settings.activeColor='default-scheme-color'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-cyan" ng-click="main.settings.activeColor='cyan-scheme-color'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-lightred" ng-click="main.settings.activeColor='lightred-scheme-color'; $event.stopPropagation()"></a>
-                        </li>
-                        <li>
-                            <a href="javascript:;" class="scheme-light" ng-click="main.settings.activeColor='light-scheme-color'; $event.stopPropagation()"></a>
+                        <li class="list-group-item">
+                            <p>
+                                <span>Page Transition: </span> 
+                                <span class="space"></span>
+                                <select ng-model="admin.pageTransition"
+                                        ng-options="ageTransitionOpt.name for ageTransitionOpt in pageTransitionOpts"></select>
+                            </p>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <div class="form-group ng-scope">
-                        <div class="row">
-                            <label class="col-xs-8 control-label">Fixed header</label>
-                            <div class="col-xs-4 control-label">
-                                <div class="onoffswitch lightred small" ng-click="$event.stopPropagation()">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="fixed-header" checked="checked" ng-model="main.settings.headerFixed">
-                                    <label class="onoffswitch-label" for="fixed-header"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+            </li>
+<!--             <li class="dropdown hidden-xs">
+                <a href="javascript:;" class="dropdown-toggle" id="step4" data-toggle="dropdown">
+                    <i class="fa fa-tint"></i>
+                </a>
+                <ul class="dropdown-menu pull-right color-switch" data-ui-color-switch>
+                    <li><a href="javascript:;" class="color-option color-some_color" data-style="some_color"></a></li>
+                </ul>
+            </li> -->
+            <li class="search-box visible-md visible-lg">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-search text-muted"></i></span>
+                    <input type="text" class="form-control" placeholder="Search...">
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge badge-danger">3</span>
+                </a>
+                <div class="dropdown-menu with-arrow panel panel-dark">
+                    <div class="panel-heading">
+                        You have 3 mails.
                     </div>
-                </li>
-                <li>
-                    <div class="form-group ng-scope">
-                        <div class="row">
-                            <label class="col-xs-8 control-label">Fixed aside</label>
-                            <div class="col-xs-4 control-label">
-                                <div class="onoffswitch lightred small" ng-click="$event.stopPropagation()">
-                                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="fixed-aside" checked="checked" ng-model="main.settings.asideFixed">
-                                    <label class="onoffswitch-label" for="fixed-aside"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="btn-icon-lined btn-icon-round btn-warning"><i class="fa fa-envelope-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Lisa sent you a mail</span>
+                                    <span class="text-muted block">2min ago</span>
                                 </div>
-                            </div>
-                        </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="btn-icon-lined btn-icon-round btn-info"><i class="fa fa-envelope-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Jane sent you a mail</span>
+                                    <span class="text-muted">3 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="btn-icon-lined btn-icon-round btn-success"><i class="fa fa-envelope-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Lynda sent you a mail</span>
+                                    <span class="text-muted">9 hours ago</span>
+                                </div>
+                            </a>
+                        </li>                       
+                    </ul>
+                    <div class="panel-footer">
+                        <a href="#/mail/inbox">Show all mails.</a>
                     </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-    <!-- Left-side navigation end -->
-    <!-- Search -->
-    <div class="search" id="main-search">
-        <input type="text" class="form-control underline-input" placeholder="Search..."> </div>
-    <!-- Search end -->
-    <!-- Right-side navigation -->
-    <ul class="nav-right pull-right list-inline">
-        <li class="dropdown users" dropdown>
-            <a href class="dropdown-toggle" dropdown-toggle>
-                <fa name="user"></fa> <span class="badge bg-lightred">2</span> </a>
-            <div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInUp" role="menu">
-                <div class="panel-heading"> You have <strong>2</strong> requests </div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="javascript:;" class="media">
-                            <div class="media-left"> <span class="media-object thumb thumb-sm"> <img src="images/arnold-avatar.46a778b8.jpg" alt="" class="img-circle"> </span> </div>
-                            <div class="media-body"> <span class="block">Arnold sent you a request</span> <small class="text-muted">15 minutes ago</small> </div>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-bell-o"></i>
+                    <span class="badge badge-info">3</span>
+                </a>
+                <div class="dropdown-menu with-arrow panel panel-dark">
+                    <div class="panel-heading">
+                        You have 3 notifications.
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="btn-icon-lined btn-icon-round btn-success"><i class="fa fa-bell-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">New tasks needs to be done</span>
+                                    <span class="text-muted block">2min ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="btn-icon-lined btn-icon-round btn-info"><i class="fa fa-bell-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">Change your password</span>
+                                    <span class="text-muted">3 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javascript:;" class="media">
+                                <span class="pull-left media-icon">
+                                    <span class="btn-icon-lined btn-icon-round btn-danger"><i class="fa fa-bell-o"></i></span>
+                                </span>
+                                <div class="media-body">
+                                    <span class="block">New feature added</span>
+                                    <span class="text-muted">9 hours ago</span>
+                                </div>
+                            </a>
+                        </li>                       
+                    </ul>
+                    <div class="panel-footer">
+                        <a href="#/mail/inbox">Show all notifications.</a>
+                    </div>
+                </div>
+            </li>
+        </ul> 
+
+        <ul class="nav-right pull-right list-unstyled">
+
+            <li class="dropdown text-normal nav-profile">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">                    
+                    <?= $this->Html->image('g1.jpg', ['alt' => '', 'class' => 'img-circle img30_30'])?>
+                    <span class="hidden-xs">
+                        <span data-i18n="Lisa Doe"></span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu with-arrow pull-right">
+                    <li>
+                        <a href="#/pages/profile">
+                            <i class="fa fa-user"></i>
+                            <span data-i18n="My Profile"></span>
                         </a>
                     </li>
-                    <li class="list-group-item">
-                        <a href="javascript:;" class="media">
-                            <div class="media-left"> <span class="media-object thumb thumb-sm"> <img src="images/george-avatar.4f9e6213.jpg" alt="" class="img-circle"> </span> </div>
-                            <div class="media-body"> <span class="block">George sent you a request</span> <small class="text-muted">5 hours ago</small> </div>
+                    <li>
+                        <a href="#/users/profile">
+                            <i class="fa fa-user"></i>
+                            <span data-i18n="My Profile"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/tasks/tasks">
+                            <i class="fa fa-check"></i>
+                            <span data-i18n="My Tasks"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/pages/lock-screen">
+                            <i class="fa fa-lock"></i>
+                            <span data-i18n="Lock"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#/pages/signin">
+                            <i class="fa fa-sign-out"></i>
+                            <span data-i18n="Log Out"></span>
                         </a>
                     </li>
                 </ul>
-                <div class="panel-footer"> <a href="javascript:;">Show all requests <fa name="angle-right" class="pull-right"></fa></a> </div>
-            </div>
-        </li>
-        <li class="dropdown messages" dropdown>
-            <a href class="dropdown-toggle" dropdown-toggle>
-                <fa name="envelope"></fa> <span class="badge bg-lightred">4</span> </a>
-            <div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInDown" role="menu">
-                <div class="panel-heading"> You have <strong>4</strong> messages </div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="javascript:;" class="media">
-                            <div class="media-left"> <span class="media-object thumb thumb-sm"> <img src="images/ici-avatar.b5d0063b.jpg" alt="" class="img-circle"> </span> </div>
-                            <div class="media-body"> <span class="block">Imrich sent you a message</span> <small class="text-muted">12 minutes ago</small> </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="javascript:;" class="media">
-                            <div class="media-left"> <span class="media-object thumb thumb-sm"> <img src="images/peter-avatar.20382422.jpg" alt="" class="img-circle"> </span> </div>
-                            <div class="media-body"> <span class="block">Peter sent you a message</span> <small class="text-muted">46 minutes ago</small> </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="javascript:;" class="media">
-                            <div class="media-left"> <span class="media-object thumb thumb-sm"> <img src="images/random-avatar1.5c5e2735.jpg" alt="" class="img-circle"> </span> </div>
-                            <div class="media-body"> <span class="block">Bill sent you a message</span> <small class="text-muted">1 hour ago</small> </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="javascript:;" class="media">
-                            <div class="media-left"> <span class="media-object thumb thumb-sm"> <img src="images/random-avatar3.afcdc148.jpg" alt="" class="img-circle"> </span> </div>
-                            <div class="media-body"> <span class="block">Ken sent you a message</span> <small class="text-muted">3 hours ago</small> </div>
-                        </a>
-                    </li>
+            </li>
+            <li class="dropdown langs text-normal" data-ng-controller="LangCtrl">
+                <a href="javascript:;" class="dropdown-toggle active-flag" id="step2" data-toggle="dropdown">
+                    <div class="flag {{ getFlag() }}"></div>
+                </a>
+                <ul class="dropdown-menu with-arrow  pull-right list-langs" role="menu">
+                    <li data-ng-show="lang !== 'English' ">
+                        <a href="javascript:;" data-ng-click="setLang('English')"><div class="flag flags-american"></div> English</a></li>
+                    <li data-ng-show="lang !== 'Español' ">
+                        <a href="javascript:;" data-ng-click="setLang('Español')"><div class="flag flags-spain"></div> Español</a></li>
+                    <li data-ng-show="lang !== '日本語' ">
+                        <a href="javascript:;" data-ng-click="setLang('日本語')"><div class="flag flags-japan"></div> 日本語</a></li>
+                    <li data-ng-show="lang !== '中文' ">
+                        <a href="javascript:;" data-ng-click="setLang('中文')"><div class="flag flags-china"></div> 中文</a></li>
+                    <li data-ng-show="lang !== 'Deutsch' ">
+                        <a href="javascript:;" data-ng-click="setLang('Deutsch')"><div class="flag flags-germany"></div> Deutsch</a></li>
+                    <li data-ng-show="lang !== 'français' ">
+                        <a href="javascript:;" data-ng-click="setLang('français')"><div class="flag flags-france"></div> français</a></li>
+                    <li data-ng-show="lang !== 'Italiano' ">
+                        <a href="javascript:;" data-ng-click="setLang('Italiano')"><div class="flag flags-italy"></div> Italiano</a></li>
+                    <li data-ng-show="lang !== 'Portugal' ">
+                        <a href="javascript:;" data-ng-click="setLang('Portugal')"><div class="flag flags-portugal"></div> Portugal</a></li>
+                    <li data-ng-show="lang !== 'Русский язык' ">
+                        <a href="javascript:;" data-ng-click="setLang('Русский язык')"><div class="flag flags-russia"></div> Русский язык</a></li>
+                    <li data-ng-show="lang !== '한국어' ">
+                        <a href="javascript:;" data-ng-click="setLang('한국어')"><div class="flag flags-korea"></div> 한국어</a></li>
                 </ul>
-                <div class="panel-footer"> <a href="javascript:;">Show all messages <fa name="angle-right" class="pull-right"></fa></a> </div>
-            </div>
-        </li>
-        <li class="dropdown notifications" dropdown>
-            <a href class="dropdown-toggle" dropdown-toggle>
-                <fa name="bell"></fa> <span class="badge bg-lightred">3</span> </a>
-            <div class="dropdown-menu pull-right with-arrow panel panel-default animated littleFadeInLeft" role="menu">
-                <div class="panel-heading"> You have <strong>3</strong> notifications </div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="javascript:;" class="media">
-                            <div class="media-left"> <span class="media-object media-icon bg-danger"> <fa name="ban"></fa> </span> </div>
-                            <div class="media-body"> <span class="block">User Imrich cancelled account</span> <small class="text-muted">6 minutes ago</small> </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="javascript:;" class="media">
-                            <div class="media-left"> <span class="media-object media-icon bg-primary"> <fa name="bolt"></fa> </span> </div>
-                            <div class="media-body"> <span class="block">New user registered</span> <small class="text-muted">12 minutes ago</small> </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="javascript:;" class="media">
-                            <div class="media-left"> <span class="media-object media-icon bg-greensea"> <fa name="lock"></fa> </span> </div>
-                            <div class="media-body"> <span class="block">User Robert locked account</span> <small class="text-muted">18 minutes ago</small> </div>
-                        </a>
-                    </li>
-                </ul>
-                <div class="panel-footer"> <a href="javascript:;">Show all notifications <fa name="angle-right" class="pull-right"></fa></a> </div>
-            </div>
-        </li>
-        <li class="dropdown nav-profile" dropdown>
-            <a href class="dropdown-toggle" dropdown-toggle> <img src="images/profile-photo.06d5f78a.jpg" alt="" class="img-circle size-30x30"> <span>John Douey <fa name="angle-down"></fa></span> </a>
-            <ul class="dropdown-menu animated littleFadeInRight" role="menu">
-                <li>
-                    <a href="#"> <span class="badge bg-greensea pull-right">86%</span>
-                        <fa name="user"></fa>Profile </a>
-                </li>
-                <li>
-                    <a href="#"> <span class="label bg-lightred pull-right">new</span>
-                        <fa name="check"></fa>Tasks </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <fa name="cog"></fa>Settings </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <fa name="lock"></fa>Lock </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <fa name="sign-out"></fa>Logout </a>
-                </li>
-            </ul>
-        </li>
-        <li class="dropdown language" dropdown>
-            <a href class="dropdown-toggle" dropdown-toggle> <img ng-show="currentLanguage == 'en'" src="images/flags/United-States-of-America.42ddfa1a.png" alt=""> <img ng-show="currentLanguage == 'sk'" src="images/flags/Slovakia.7afe57a3.png" alt=""> <img ng-show="currentLanguage == 'cz'" src="images/flags/Czech-Republic.1a39c7ed.png" alt=""> <img ng-show="currentLanguage == 'de'" src="images/flags/Germany.9bd09472.png" alt=""> </a>
-            <ul class="dropdown-menu pull-right with-arrow animated littleFadeInDown" role="menu">
-                <li ng-class="{active: currentLanguage == 'en'}">
-                    <a href="javascript:;" ng-click="changeLanguage('en')"> <img src="images/flags/United-States-of-America.42ddfa1a.png" alt=""> English </a>
-                </li>
-                <li ng-class="{active: currentLanguage == 'sk'}">
-                    <a href="javascript:;" ng-click="changeLanguage('sk')"> <img src="images/flags/Slovakia.7afe57a3.png" alt=""> Slovak </a>
-                </li>
-                <li ng-class="{active: currentLanguage == 'cz'}">
-                    <a href="javascript:;" ng-click="changeLanguage('cz')"> <img src="images/flags/Czech-Republic.1a39c7ed.png" alt=""> Czech </a>
-                </li>
-                <li ng-class="{active: currentLanguage == 'de'}">
-                    <a href="javascript:;" ng-click="changeLanguage('de')"> <img src="images/flags/Germany.9bd09472.png" alt=""> German </a>
-                </li>
-            </ul>
-        </li>
-        <li class="toggle-right-sidebar">
-            <a href="javascript:;" ng-click="main.settings.rightbarShow = !main.settings.rightbarShow">
-                <fa name="comments"></fa>
-            </a>
-        </li>
-    </ul>
-    <!-- Right-side navigation end -->
+            </li>
+        </ul>
+    </div>
+
 </header>
