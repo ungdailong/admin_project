@@ -1871,7 +1871,18 @@
         "use strict";
         angular.module("app", ["ngRoute", "ngAnimate", "ui.bootstrap", "easypiechart", "textAngular", "ui.tree", "ngMap", "ngTagsInput", "app.controllers", "app.directives", "app.localization", "app.nav", "app.ui.ctrls", "app.ui.directives", "app.ui.services", "app.ui.map", "app.form.validation", "app.ui.form.ctrls", "app.ui.form.directives", "app.tables", "app.task", "app.chart.ctrls", "app.chart.directives", "app.page.ctrls"]).config(["$routeProvider", function($routeProvider) {
             var routes, setRoutes;
-            return routes = ["dashboard", "ui/typography", "ui/buttons", "ui/icons", "ui/grids", "ui/widgets", "ui/components", "ui/timeline", "ui/nested-lists", "ui/pricing-tables", "ui/maps", "tables/static", "tables/dynamic", "tables/responsive", "forms/elements", "forms/layouts", "forms/validation", "forms/wizard", "charts/charts", "charts/flot", "charts/morris", "pages/404", "pages/500", "pages/blank", "pages/forgot-password", "pages/invoice", "pages/lock-screen", "pages/profile", "pages/signin", "pages/signup", "mail/compose", "mail/inbox", "mail/single", "tasks/tasks", "users/profile"], setRoutes = function(route) {
+            return routes = ["dashboard",
+            "ui/typography", "ui/buttons", "ui/icons", "ui/grids", "ui/widgets", "ui/components", "ui/timeline", "ui/nested-lists", "ui/pricing-tables", "ui/maps",
+            "tables/static", "tables/dynamic", "tables/responsive",
+            "forms/elements", "forms/layouts", "forms/validation", "forms/wizard",
+            "charts/charts", "charts/flot", "charts/morris",
+            "pages/404", "pages/500", "pages/blank", "pages/forgot-password", "pages/invoice", "pages/lock-screen", "pages/profile", "pages/signin", "pages/signup",
+            "mail/compose", "mail/inbox", "mail/single",
+            "tasks/tasks",
+            "users/profile", "users/list", "users/add", "users/edit", "users/groups", "users/group/add", "users/group/edit",
+            "products/view", "products/list", "products/add", "products/edit",
+            "orders/view", "orders/list", "orders/add", "orders/edit",
+            "news/view", "news/list", "news/add", "news/edit"], setRoutes = function(route) {
                 var config, url;
                 return url = "/" + route, config = {
                     templateUrl: "views/" + route + ".html"

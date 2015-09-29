@@ -37,7 +37,7 @@ class ViewsController extends AppController
         $page = str_replace('.html', '', $page);
 
         $defaultElements = ['dashboard', 'header', 'nav'];
-        $defaultPages = ['signin', 'signup', 'forgot-password', 'profile'];
+        $defaultPages = ['signin', 'signup', 'forgot-password', 'profile', 'list', 'add', 'edit'];
         
         if (!$page && in_array($element, $defaultElements)) {
             $this->render("/Element/$element");
