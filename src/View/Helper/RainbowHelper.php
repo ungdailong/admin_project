@@ -69,8 +69,8 @@ class RainbowHelper extends Helper
         return "<form name='$name' $attributes >";
     }
 
-    public function endForm()
+    public function endForm(array $secureAttributes = [])
     {
-        return $this->Form->end(['data-type' => 'hidden']);
+        return $this->Form->end($secureAttributes);
     }
 }

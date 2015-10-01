@@ -1,4 +1,4 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<!--<nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?></li>
@@ -27,7 +27,7 @@
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>
     <?= $this->Form->end() ?>
-</div>
+</div>-->
 <div class="page page-form">
     <div class="row">
         <div class="col-md-6">
@@ -76,15 +76,10 @@
                                        data-max="100">
                             </div>
                         </div> -->
-                        <button type="submit"
-                                class="btn btn-primary btn-block btn-lg"
-                                data-ng-disabled="!canSubmit()">Sign up</button>
-                        <div class="callout callout-info">
-                            <p>Submit button will be active only when all fields are valid.</p>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="alert alert-info" data-ng-show="showInfoOnSubmit">This is just for demo. In real project, you will submit form with AJAX :)</div>                 
-                    <!-- </form> -->
+                        <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary btn-block btn-lg', 'data-ng-disabled' => '!canSubmit()']) ?>
+                        <?= $this->Html->div('callout callout-info', $this->Html->tag('p', 'Submit button will be active only when all fields are valid.'))?>
+                        <?= $this->Html->div('divider','')?>
+                        <?= $this->Html->div('alert alert-info','This is just for demo. In real project, you will submit form with AJAX :)', ['data-ng-show' => 'showInfoOnSubmit'])?>
                     <?= $this->Rainbow->endForm(); ?>
                 </div>
             </div>
