@@ -1112,22 +1112,33 @@
             }, $scope.submitForm = function() {
                 return $scope.showInfoOnSubmit = !0, $scope.revert()
             }
-        }]).controller("signupCtrl", ["$scope", function($scope) {
+        }]).controller("signupCtrl", ["$scope","$http", function($scope, $http) {
             var original;
             return $scope.user = {
-                name: "",
+                user_name: "",
                 email: "",
                 password: "",
                 confirmPassword: "",
-                age: ""
+                //age: "",
             }, $scope.showInfoOnSubmit = !1, original = angular.copy($scope.user), $scope.revert = function() {
-                return $scope.user = angular.copy(original), $scope.form_signup.$setPristine(), $scope.form_signup.confirmPassword.$setPristine()
+                return $scope.user = angular.copy(original), $scope.form_signup.$setPristine()//, $scope.form_signup.confirmPassword.$setPristine()
             }, $scope.canRevert = function() {
                 return !angular.equals($scope.user, original) || !$scope.form_signup.$pristine
             }, $scope.canSubmit = function() {
                 return $scope.form_signup.$valid && !angular.equals($scope.user, original)
             }, $scope.submitForm = function() {
-                return $scope.showInfoOnSubmit = !0, $scope.revert()
+                //return $scope.showInfoOnSubmit = !0, $scope.revert()
+                //var $scope.formData = [];
+                console.log($scope.user);
+                $http({
+                    method  : 'POST',
+                    url     : 'users/add',
+                    data    : $.param($scope.user),
+                    headers : { 'Content-Type': 'application/x-www-form-urlencoded' }
+                })
+                .success(function(data) {
+                    console.log(data);
+                });
             }
         }]).directive("validateEquals", [function() {
             return {

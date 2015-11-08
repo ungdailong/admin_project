@@ -39,7 +39,8 @@
                         <?php                
                             echo $this->Rainbow->input('user_name',['type' => 'text', 'placeholder' => 'Min length 2, Max length 30', 'data-ng-model' => 'user.name', 'data-ng-minlength' => '2', 'data-ng-maxlength' => '30', 'required' => true]);
                             echo $this->Rainbow->input('password',['type' => 'password', 'placeholder' => 'Min length 6', 'data-ng-model' => 'user.password', 'data-ng-minlength' => '6', 'required' => true]);
-                            echo $this->Rainbow->input('email',['type' => 'email', 'placeholder' => 'Min length 2, Max length 30', 'data-ng-model' => 'user.email', 'data-ng-minlength' => '2', 'data-ng-maxlength' => '30', 'required' => true]);
+                            echo $this->Rainbow->input('confirmPassword',['type' => 'password', 'placeholder' => 'Min length 6', 'data-ng-model' => 'user.confirmPassword', 'data-ng-minlength' => '6', 'required' => true, 'data-validate-equals' => 'user.password']);
+                            /*echo $this->Rainbow->input('email',['type' => 'email', 'placeholder' => 'Min length 2, Max length 30', 'data-ng-model' => 'user.email', 'data-ng-minlength' => '2', 'data-ng-maxlength' => '30', 'required' => true]);
                             echo $this->Rainbow->input('first_name',['type' => 'text', 'placeholder' => 'Min length 2, Max length 30', 'data-ng-model' => 'user.first_name', 'data-ng-minlength' => '2', 'data-ng-maxlength' => '30', 'required' => true]);
                             echo $this->Rainbow->input('last_name',['type' => 'text', 'placeholder' => 'Min length 2, Max length 30', 'data-ng-model' => 'user.last_name', 'data-ng-minlength' => '2', 'data-ng-maxlength' => '30', 'required' => true]);
                             echo $this->Rainbow->input('birthday',['type' => 'text', 'placeholder' => 'Min length 2, Max length 30', 'data-ng-model' => 'user.birthday', 'data-ng-minlength' => '2', 'data-ng-maxlength' => '30', 'required' => true]);
@@ -48,7 +49,7 @@
                             echo $this->Rainbow->input('last_login',['type' => 'text', 'placeholder' => 'Min length 2, Max length 30', 'data-ng-model' => 'user.last_login', 'data-ng-minlength' => '2', 'data-ng-maxlength' => '30', 'required' => true]);
                             echo $this->Rainbow->input('ip_login',['type' => 'text', 'placeholder' => 'Min length 2, Max length 30', 'data-ng-model' => 'user.ip_login', 'data-ng-minlength' => '2', 'data-ng-maxlength' => '30', 'required' => true]);
                             echo $this->Rainbow->input('status',['type' => 'text', 'placeholder' => 'Min length 2, Max length 30', 'data-ng-model' => 'user.status', 'data-ng-minlength' => '2', 'data-ng-maxlength' => '30', 'required' => true]);                                                        
-                            echo $this->Rainbow->select('group_id', ['Mustard', 'Ketchup', 'Barbecue'], ['data-ng-model' => 'user.group_id', 'empty' => 'Choose One', 'lableName' => 'Group']);
+                            echo $this->Rainbow->select('group_id', ['Mustard', 'Ketchup', 'Barbecue'], ['data-ng-model' => 'user.group_id', 'empty' => 'Choose One', 'lableName' => 'Group']);*/
                         ?>
 <!--                         <div class="form-group">
                             <div class="col-sm-3">

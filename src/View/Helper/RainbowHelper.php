@@ -24,7 +24,7 @@ class RainbowHelper extends Helper
         
         $options += [
             'class' => 'form-control',
-            'templateVars' => $templateVars
+            'templateVars' => $templateVars,
         ];
 
         $this->Form->templates($templates);

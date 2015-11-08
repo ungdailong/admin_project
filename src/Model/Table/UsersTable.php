@@ -33,10 +33,10 @@ class UsersTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Countries', [
+        /*$this->belongsTo('Countries', [
             'foreignKey' => 'country_id'
-        ]);
-        $this->belongsTo('Groups', [
+        ]);*/
+        $this->belongsTo('UserGroups', [
             'foreignKey' => 'group_id'
         ]);
         $this->hasMany('Orders', [
@@ -103,7 +103,7 @@ class UsersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->isUnique(['email']));
-        $rules->add($rules->existsIn(['country_id'], 'Countries'));
+        //$rules->add($rules->existsIn(['country_id'], 'Countries'));
         $rules->add($rules->existsIn(['group_id'], 'Groups'));
         return $rules;
     }
