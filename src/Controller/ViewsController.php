@@ -31,13 +31,17 @@ class ViewsController extends AppController
         $this->viewBuilder()->layout(false);
         $this->render('/Element/app');
     }    */
-    public function html($element, $page = NULL)
+    public function html($element, $page = NULL, $index = NULL)
     {
         $element = str_replace('.html', '', $element);
         $page = str_replace('.html', '', $page);
-
+        $index = str_replace('.html', '', $page);
+        if(intval($index) > 0) {
+            
+        }
+        
         $defaultElements = ['dashboard', 'header', 'nav'];
-        $defaultPages = ['signin', 'signup', 'forgot-password', 'profile', 'list', 'add', 'edit'];
+        $defaultPages = ['signin', 'signup', 'forgot-password', 'profile', 'list', 'add', 'edit', 'view'];
         
         if (!$page && in_array($element, $defaultElements)) {
             $this->render("/Element/$element");

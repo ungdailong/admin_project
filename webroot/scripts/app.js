@@ -1890,18 +1890,22 @@
             "pages/404", "pages/500", "pages/blank", "pages/forgot-password", "pages/invoice", "pages/lock-screen", "pages/profile", "pages/signin", "pages/signup",
             "mail/compose", "mail/inbox", "mail/single",
             "tasks/tasks",
-            "users/profile", "users/list", "users/add", "users/edit", "users/groups", "users/group/add", "users/group/edit",
+            "users/profile", "users/list", "users/add", "users/view", "users/edit", "users/groups", "users/group/add", "users/group/edit",
             "products/view", "products/list", "products/add", "products/edit",
             "orders/view", "orders/list", "orders/add", "orders/edit",
             "news/view", "news/list", "news/add", "news/edit"], setRoutes = function(route) {
-                var config, url;
+                var config, url;                
                 return url = "/" + route, config = {
                     templateUrl: "views/" + route + ".html"
                 }, $routeProvider.when(url, config), $routeProvider
-            }, routes.forEach(function(route) {
+            }, routes.forEach(function(route) {                
                 return setRoutes(route)
             }), $routeProvider.when("/", {
                 redirectTo: "/dashboard"
+            }).when("/users/profile/:name", {                
+                templateUrl: function(urlattr){                
+                    return '/views/users/profile/' + urlattr.name + '.html';
+                },
             }).when("/404", {
                 templateUrl: "views/pages/404.html"
             }).otherwise({

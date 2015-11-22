@@ -2,7 +2,7 @@
 <div class="page page-profile">
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
 
             <section class="panel panel-box">
                 <div class="panel-top bg-primary">
@@ -167,7 +167,7 @@
             </div>
           
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6" style="display:none">
 
             <div class="ui-timline-container ui-timline-left">
                 <section class="ui-timeline">

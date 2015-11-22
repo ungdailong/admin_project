@@ -7,9 +7,8 @@
                     <thead>
                             <tr>
                                 <th><label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ><span>All</span></label> </th>
-                                <th>Id</th>
-                                <th>Email</th>
-                                <th>Fullname</th>
+                                <th>Id/FullName</th>
+                                <th>Email</th>                                
                                 <th>Status</th>
                                 <th>Created</th>
                                 <th>Last login</th>
@@ -17,7 +16,7 @@
                         </thead>
                     <tr class="mail-unread">
                         <td><label class="ui-checkbox"><input name="checkbox1" type="checkbox" value="option1" ><span></span></label></td>
-                        <td>Jane Swift <i class="fa fa-circle color-info"></i></td>
+                        <td><a href="/#/users/profile/1">Jane Swift <i class="fa fa-circle color-info"></i></a></td>
                         <td><a>Nice to meet you</a></td>
                         <td><i class="fa fa-paperclip"></i></td>
                         <td>3/11/14 2:30 PM</td>
